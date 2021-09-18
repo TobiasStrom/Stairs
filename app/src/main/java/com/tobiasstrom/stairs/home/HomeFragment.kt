@@ -1,24 +1,24 @@
-package com.tobiasstrom.stairs.examplea
+package com.tobiasstrom.stairs.home
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.tobiasstrom.stairs.common.extensions.navigate
-import com.tobiasstrom.stairs.databinding.FragmentABinding
+import com.tobiasstrom.stairs.databinding.FragmentHomeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private val viewModel: AViewModel by viewModel()
+    private val viewModel: HomeViewModel by viewModel()
 
-    lateinit var binding: FragmentABinding
+    lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentABinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
@@ -33,7 +33,7 @@ class AFragment : Fragment() {
         viewModel.navigation.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.also { event ->
                 when (event) {
-                    is ASubmit -> navigate(AFragmentDirections.toB())
+                    is HomeSubmit -> navigate(HomeFragmentDirections.toB())
                 }
             }
         }

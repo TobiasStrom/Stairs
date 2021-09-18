@@ -35,8 +35,8 @@
         />
     <fragment
         android:id="@+id/a_fragment"
-        android:name="com.tobiasstrom.stairs.examplea.AFragment"
-        tools:layout="@layout/fragment_a">
+        android:name="com.tobiasstrom.stairs.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/to_b"
             app:destination="@id/b_fragment" />
@@ -47,8 +47,8 @@
         tools:layout="@layout/fragment_track" />
     <fragment
         android:id="@+id/scan_fragment"
-        android:name="com.tobiasstrom.stairs.examplec.CFragment"
-        tools:layout="@layout/fragment_c" />
+        android:name="com.tobiasstrom.stairs.stats.StatsFragment"
+        tools:layout="@layout/fragment_stats" />
     <action
         android:id="@+id/to_main"
         app:destination="@id/a_fragment"

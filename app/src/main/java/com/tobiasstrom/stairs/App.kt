@@ -2,13 +2,14 @@ package com.tobiasstrom.stairs
 
 import android.app.Application
 import android.util.Log
+import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.tobiasstrom.stairs.common.commonModule
-import com.tobiasstrom.stairs.examplea.aModule
-import com.tobiasstrom.stairs.track.bModule
-import com.tobiasstrom.stairs.examplec.cModule
+import com.tobiasstrom.stairs.home.aModule
+import com.tobiasstrom.stairs.stats.cModule
 import com.tobiasstrom.stairs.main.mainModule
 import com.tobiasstrom.stairs.startup.onboardingModule
+import com.tobiasstrom.stairs.track.trackModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -17,9 +18,11 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        initFirebase()
         startKoin {
             androidContext(this@App)
-            modules(listOf(mainModule, commonModule, onboardingModule, aModule, bModule, cModule))
+            modules(listOf(mainModule, commonModule, onboardingModule, aModule, trackModule, cModule))
         }
         initLogging()
     }
@@ -27,6 +30,9 @@ class App : Application() {
     private fun initLogging() {
         val min = if (BuildConfig.DEBUG) Log.VERBOSE else Log.DEBUG
         Timber.plant(if (BuildConfig.DEBUG) Timber.DebugTree() else CrashReportingTree(min))
+    }
+    private fun initFirebase(){
+        FirebaseApp.initializeApp(this)
     }
 
     private class CrashReportingTree(private val minPriority: Int) : Timber.Tree() {
