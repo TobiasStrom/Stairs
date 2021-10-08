@@ -1,6 +1,9 @@
 package com.tobiasstrom.stairs.startup.view
 
 import androidx.lifecycle.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -15,18 +18,21 @@ class SplashViewModel(
 
     private val _navigationEvent = MutableLiveData<SplashNavigationEvent>()
     val navigationEvent = _navigationEvent.map(::Event)
+    //private var auth: FirebaseAuth = Firebase.auth
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             remoteConfig.init()
             when {
+
                 remoteConfig.isVersionLocked() -> _navigationEvent.postValue(
-                    SplashNavigationVersionLock
+                    SplashNavigationEvent.SplashNavigationVersionLock
                 )
-                !preferences.onboardingCompleted.first() -> _navigationEvent.postValue(
-                    SplashNavigationOnboarding
+                preferences.onboardingCompleted.first() -> _navigationEvent.postValue(
+                    SplashNavigationEvent.SplashNavigationOnboarding
                 )
-                else -> _navigationEvent.postValue(SplashNavigationMain)
+
+                else -> _navigationEvent.postValue(SplashNavigationEvent.SplashNavigationMain)
             }
         }
     }

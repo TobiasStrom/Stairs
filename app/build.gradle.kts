@@ -15,7 +15,7 @@ android {
     compileSdk = 30
     defaultConfig {
         applicationId = "com.tobiasstrom.stairs"
-        minSdk = 23
+        minSdk = 26
         targetSdk = 30
         versionCode = versioning.versionCode()
         versionName = versioning.versionName()
@@ -81,7 +81,7 @@ android {
 
 dependencies {
     // Kotlin
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.21")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31")
 
     // AndroidX
     implementation("androidx.core:core-ktx:1.6.0")
@@ -94,6 +94,10 @@ dependencies {
 
     // Datastore Preferences
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.1")
+    implementation("com.google.firebase:firebase-auth-ktx:21.0.1")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // ViewModel and livedata
     val lifecycleVersion = "2.3.1"
@@ -116,10 +120,11 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:28.4.0"))
+    implementation(platform("com.google.firebase:firebase-bom:28.4.1"))
     implementation("com.google.firebase:firebase-perf-ktx")
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-config")
+    implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-crashlytics")
 
@@ -151,4 +156,26 @@ dependencies {
     // Update: June 2021, seems this also fixes extreme logging spam.
     // https://stackoverflow.com/a/64248713
     implementation("com.google.android.gms:play-services-basement:17.6.0")
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+
+
+    implementation("com.google.mlkit:barcode-scanning:17.0.0")
+
+
+    // Camerax
+    val camerax_version = "1.0.1"
+    implementation("androidx.camera:camera-camera2:$camerax_version")
+    implementation("androidx.camera:camera-lifecycle:$camerax_version")
+    implementation("androidx.camera:camera-view:1.0.0-alpha27")
+
+    val lottieVersion = "3.4.0"
+    implementation("com.airbnb.android:lottie:$lottieVersion")
+
+
+
+
+
 }

@@ -1,16 +1,16 @@
-package com.tobiasstrom.stairs.examplea
+package com.tobiasstrom.stairs.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.tobiasstrom.stairs.common.livedata.Event
 
-class AViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
-    private val _navigation = MutableLiveData<Event<ANavigation>>()
+    private val _navigation = MutableLiveData<Event<HomeNavigation>>()
     val navigation = _navigation.map { it }
 
     fun submit() {
-        _navigation.value = Event(ASubmit)
+        _navigation.value = Event(HomeSubmit)
     }
 }

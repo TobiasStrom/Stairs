@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.tobiasstrom.stairs.examplec.CViewModel" />
+            type="com.tobiasstrom.stairs.stats.StatsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
