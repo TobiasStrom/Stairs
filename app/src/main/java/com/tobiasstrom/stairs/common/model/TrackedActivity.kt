@@ -5,16 +5,16 @@ import java.time.LocalDateTime
 
 
 class TrackedActivity(
-    val id: String,
-    val userName: String,
-    val startFloor: Int,
-    val endFloor: Int,
-    val startTime: Timestamp,
-    val endTime: Timestamp,
-    val building : String
+    val id: String? = null,
+    val userName: String? = null,
+    val startFloor: Int? = null,
+    val endFloor: Int? = null,
+    val startTime: Timestamp? = null,
+    val endTime: Timestamp? = null,
+    val building : String? = null
     ) {
 
     fun getTotalFloors(): Int {
-        return endFloor - startFloor - 1 // no have floor 0
+        return endFloor!! - startFloor!! - 1 // no have floor 0
     }
 }

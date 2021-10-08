@@ -13,6 +13,7 @@ allprojects {
 }
 
 buildscript {
+
     repositories {
         mavenCentral()
         google()
@@ -20,7 +21,7 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.7.1")
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5")
         classpath("gradle.plugin.me.tadej:versioning:0.2.0")

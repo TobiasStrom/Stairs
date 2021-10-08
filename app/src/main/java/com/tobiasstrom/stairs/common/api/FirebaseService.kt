@@ -31,11 +31,11 @@ class FirebaseService() {
 
     fun getAllActivity(): List<TrackedActivity>{
         val activitiesList: MutableList<TrackedActivity> = mutableListOf()
-        activitiesDB.get().addOnSuccessListener  { activities ->
+        activitiesDB.get().addOnSuccessListener { activities ->
             for (activity in activities){
-                activitiesList.add(activity.toObject<TrackedActivity>())
+                activitiesList.add(activity.toObject())
             }
         }
-        return  activitiesList
+        return  activitiesList.toList()
     }
 }

@@ -81,7 +81,7 @@ android {
 
 dependencies {
     // Kotlin
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.21")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31")
 
     // AndroidX
     implementation("androidx.core:core-ktx:1.6.0")
@@ -94,6 +94,10 @@ dependencies {
 
     // Datastore Preferences
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.1")
+    implementation("com.google.firebase:firebase-auth-ktx:21.0.1")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // ViewModel and livedata
     val lifecycleVersion = "2.3.1"
@@ -156,6 +160,22 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+
+
+    implementation("com.google.mlkit:barcode-scanning:17.0.0")
+
+
+    // Camerax
+    val camerax_version = "1.0.1"
+    implementation("androidx.camera:camera-camera2:$camerax_version")
+    implementation("androidx.camera:camera-lifecycle:$camerax_version")
+    implementation("androidx.camera:camera-view:1.0.0-alpha27")
+
+    val lottieVersion = "3.4.0"
+    implementation("com.airbnb.android:lottie:$lottieVersion")
+
+
+
 
 
 }

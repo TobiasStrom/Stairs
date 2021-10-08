@@ -17,19 +17,21 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentSplashBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         viewModel.navigationEvent.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { event ->
                 when (event) {
-                    SplashNavigationOnboarding -> navigate(
+                    SplashNavigationEvent.SplashNavigationOnboarding -> navigate(
                         SplashFragmentDirections.toOnboarding()
                     )
-                    SplashNavigationVersionLock -> navigate(
+                    SplashNavigationEvent.SplashNavigationVersionLock -> navigate(
                         SplashFragmentDirections.toVersionLock()
                     )
-                    SplashNavigationMain -> navigate(SplashFragmentDirections.toMain())
+                    SplashNavigationEvent.SplashNavigationMain -> navigate(
+                        SplashFragmentDirections.toMain()
+                    )
                 }
             }
         }
